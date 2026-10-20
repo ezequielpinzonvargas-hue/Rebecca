@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f7f3ee">
+
+<meta name="description" content="Becca Studio · Mesas de dulces, postres, botanas, charcutería y barras para eventos.">
+
+<title>Becca Studio | Experiencias para celebrar</title>
+
+<style>
+
+:root {
+
+  --wine:#6f0b0b;
+
+  --wine-dark:#4b0808;
+
+  --wine-soft:#8f2020;
+
+  --blush:#dfc9c9;
+
+  --cream:#f7f3ee;
+
+  --cream-2:#ece6dd;
+
+  --taupe:#604938;
+
+  --ink:#2f2521;
+
+  --white:#fffdfa;
+
+  --line:rgba(75,8,8,.14);
+
+  --shadow:0 20px 60px rgba(53,32,26,.12);
+
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+
+img{max-width:100%;display:block}
+
+a{color:inherit;text-decoration:none}
+
+button,input,select,textarea{font:inherit}
+
+button{cursor:pointer}
+
+.container{width:min(1160px,calc(100% - 40px));margin:auto}
+
+.eyebrow{display:flex;gap:10px;align-items:center;color:var(--wine);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+
+.eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+
+.section{padding:105px 0}
+
+.section-title{font-family:Georgia,'Times New Roman',serif;color:var(--wine-dark);font-size:clamp(2.5rem,5vw,5.6rem);font-weight:400;line-height:.95;letter-spacing:-.05em;margin:16px 0 22px}
+
+.section-title em{font-family:'Brush Script MT','Segoe Script',cursive;font-weight:400;color:var(--wine-soft)}
+
+.lead{font-size:1.06rem;max-width:700px;color:#665a54}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid transparent;padding:14px 22px;min-height:50px;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem;font-weight:800;transition:.28s ease}
+
+.btn-primary{background:var(--wine);color:white;box-shadow:0 12px 25px rgba(111,11,11,.16)}
+
+.btn-primary:hover{background:var(--wine-dark);transform:translateY(-2px)}
+
+.btn-outline{border-color:var(--wine);color:var(--wine);background:transparent}
+
+.btn-outline:hover{background:var(--wine);color:white}
+
+.btn-light{background:var(--white);color:var(--wine-dark)}
+
+.btn-light:hover{transform:translateY(-2px)}
+
+.nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(247,243,238,.88);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.25s}
+
+.nav.scrolled{border-color:var(--line);box-shadow:0 8px 30px rgba(50,30,20,.05)}
+
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+.brand{font-family:Georgia,serif;font-size:2rem;letter-spacing:-.06em;color:var(--wine);line-height:.8;position:relative}
+
+.brand span{display:block;font-family:'Brush Script MT',cursive;font-size:1rem;margin-left:43px;margin-top:7px;font-weight:400}
+
+.nav-links{display:flex;gap:26px;align-items:center;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+
+.nav-links a{opacity:.75;transition:.2s}
+
+.nav-links a:hover{opacity:1;color:var(--wine)}
+
+.menu-btn{display:none;border:0;background:transparent;font-size:1.4rem;color:var(--wine)}
+
+/* HERO · GALERÍA VISUAL */
+
+.hero-gallery{min-height:100svh;position:relative;overflow:hidden;padding:100px 0 70px;display:grid;place-items:center;background:#2b1616}
+
+.hero-gallery-bg{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:3px;transform:scale(1.025)}
+
+.hero-gallery-item{position:relative;overflow:hidden;opacity:0;transition:opacity 1.2s ease}
+
+.hero-gallery-item.active{opacity:1;z-index:2}
+
+.hero-gallery-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+
+.hero-gallery-overlay{position:absolute;inset:0;z-index:3;background:linear-gradient(90deg,rgba(39,9,9,.52),rgba(39,9,9,.18) 42%,rgba(39,9,9,.48)),linear-gradient(180deg,rgba(30,8,8,.2),rgba(30,8,8,.52))}
+
+.hero-brand-card{position:relative;z-index:5;width:min(900px,calc(100% - 40px));display:grid;grid-template-columns:170px 1fr;align-items:center;gap:34px;padding:42px 48px;background:rgba(255,253,250,.94);box-shadow:0 30px 90px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(8px)}
+
+.hero-brand-mark{width:145px;height:145px;border-radius:50%;display:grid;place-items:center;background:var(--wine);color:#fff;font:400 7rem/1 Georgia,serif;box-shadow:0 18px 45px rgba(111,11,11,.25)}
+
+.hero-brand-copy .eyebrow{margin-bottom:10px}
+
+.hero-brand-copy h1{font-family:Georgia,'Times New Roman',serif;color:var(--wine-dark);font-weight:400;font-size:clamp(3.8rem,8vw,7rem);letter-spacing:-.08em;line-height:.8;margin:8px 0 20px}
+
+.hero-brand-copy h1 span{font-family:'Brush Script MT','Segoe Script',cursive;color:var(--wine-soft);font-size:.65em;letter-spacing:-.02em}
+
+.hero-brand-copy p{max-width:610px;margin:0;color:#5d514b;font-size:1.03rem}
+
+.hero-brand-card .hero-actions{margin-top:24px}
+
+.hero-gallery-label{position:absolute;z-index:5;left:30px;bottom:28px;color:white;font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;font-weight:800}
+
+.hero-gallery-dots{position:absolute;z-index:6;right:30px;bottom:27px;display:flex;gap:8px}
+
+.hero-gallery-dots button{width:34px;height:3px;border:0;padding:0;background:rgba(255,255,255,.45);transition:.25s}
+
+.hero-gallery-dots button.active{background:#fff;width:54px}
+
+@media (max-width:800px){
+
+ .hero-gallery-bg{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr)}
+
+ .hero-brand-card{grid-template-columns:1fr;gap:20px;padding:32px 28px;text-align:center}
+
+ .hero-brand-mark{width:100px;height:100px;font-size:5rem;margin:auto}
+
+ .hero-brand-copy .eyebrow{justify-content:center}
+
+ .hero-brand-copy .eyebrow:before{display:none}
+
+ .hero-brand-copy p{margin:auto}
+
+ .hero-brand-card .hero-actions{justify-content:center}
+
+ .hero-gallery-label{left:20px;bottom:22px;font-size:.6rem}
+
+ .hero-gallery-dots{right:20px;bottom:21px}
+
+}
+
+@media (max-width:520px){
+
+ .hero-gallery{padding:88px 0 60px}
+
+ .hero-brand-card{width:calc(100% - 28px);padding:28px 20px}
+
+ .hero-brand-copy h1{font-size:3.6rem}
+
+ .hero-brand-card .hero-actions .btn{width:100%}
+
+ .hero-gallery-label{display:none}
+
+}
+
+.hero{min-height:100svh;display:grid;place-items:center;padding:130px 0 70px;position:relative;overflow:hidden;background:
+
+ radial-gradient(circle at 76% 28%,rgba(223,201,201,.8),transparent 26%),
+
+ radial-gradient(circle at 88% 76%,rgba(111,11,11,.08),transparent 28%),var(--cream)}
+
+.hero:after{content:"";position:absolute;width:55vw;height:55vw;border:1px solid rgba(111,11,11,.08);border-radius:50%;right:-18vw;top:-22vw}
+
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:1}
+
+.hero h1{font-family:Georgia,'Times New Roman',serif;color:var(--wine-dark);font-weight:400;font-size:clamp(4rem,8vw,8rem);letter-spacing:-.08em;line-height:.82;margin:18px 0 28px}
+
+.hero h1 .script{display:block;font-family:'Brush Script MT','Segoe Script',cursive;font-size:.52em;font-weight:400;letter-spacing:-.03em;color:var(--wine-soft);margin-left:14vw;line-height:1}
+
+.hero p{max-width:580px;font-size:1.08rem;color:#5d514b}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+.hero-visual{min-height:560px;position:relative}
+
+.hero-card-main{position:absolute;inset:20px 30px 20px 0;border-radius:260px 260px 20px 20px;overflow:hidden;background:rgba(255,253,250,.10);border:1px solid rgba(255,255,255,.22);box-shadow:var(--shadow);backdrop-filter:blur(2px)}
+
+.hero-card-main:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(75,8,8,.45))}
+
+.hero-card-main .big-b{position:absolute;inset:0;display:grid;place-items:center;font-family:Georgia,serif;font-size:19rem;color:rgba(111,11,11,.8);line-height:1;z-index:1}
+
+.hero-card-main .caption{position:absolute;left:34px;bottom:28px;z-index:2;color:white;max-width:240px}
+
+.hero-card-main .caption strong{font-family:Georgia,serif;font-size:1.8rem;font-weight:400}
+
+.hero-card-side{position:absolute;right:0;bottom:0;width:46%;height:45%;background:var(--wine);padding:30px;color:#fff;display:flex;align-items:flex-end;box-shadow:var(--shadow)}
+
+.hero-card-side span{font-family:Georgia,serif;font-size:2rem;line-height:1.05}
+
+.hero-card-side em{font-family:'Brush Script MT',cursive;font-size:1.4rem}
+
+.logo-line{display:flex;align-items:center;gap:12px;margin-top:45px;color:#766b64;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+
+.logo-line i{width:40px;height:1px;background:var(--wine);display:block}
+
+.about{background:var(--white)}
+
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:90px;align-items:center}
+
+.quote{font-family:Georgia,serif;color:var(--wine-dark);font-size:clamp(2.2rem,4vw,4.3rem);line-height:1.05;margin:0}
+
+.quote em{font-family:'Brush Script MT',cursive;font-weight:400;color:var(--wine-soft)}
+
+.about-copy{font-size:1.05rem;color:#645a54}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.stat{padding:20px 14px 18px 0}
+
+.stat+.stat{border-left:1px solid var(--line);padding-left:20px}
+
+.stat strong{display:block;font-family:Georgia,serif;font-size:2rem;color:var(--wine)}
+
+.stat span{font-size:.75rem;color:#746a64}
+
+.services{background:var(--cream-2)}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+
+.service{background:rgba(255,253,250,.7);border:1px solid rgba(111,11,11,.09);padding:28px;min-height:285px;display:flex;flex-direction:column;transition:.28s;position:relative;overflow:hidden}
+
+.service:hover{transform:translateY(-6px);box-shadow:var(--shadow);background:var(--white)}
+
+.service-num{font-size:.74rem;color:var(--wine);letter-spacing:.12em;font-weight:800}
+
+.service h3{font-family:Georgia,serif;color:var(--wine-dark);font-size:2rem;line-height:1;margin:28px 0 16px;font-weight:400}
+
+.service p{font-size:.93rem;color:#665b55;margin:0 0 25px}
+
+.service button{margin-top:auto;background:none;border:0;color:var(--wine);padding:0;text-align:left;font-weight:800;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}
+
+.catalog{background:var(--white)}
+
+.catalog-top{display:grid;grid-template-columns:1fr .85fr;gap:50px;align-items:end}
+
+.catalog-note{background:var(--wine-dark);color:white;padding:28px;font-size:.92rem}
+
+.catalog-note strong{font-family:Georgia,serif;font-size:1.5rem;font-weight:400;display:block;margin-bottom:8px}
+
+.catalog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:45px}
+
+.catalog-item{border-top:2px solid var(--wine);padding:22px 0}
+
+.catalog-item h3{font-family:Georgia,serif;color:var(--wine-dark);font-size:1.7rem;font-weight:400;margin:0 0 12px}
+
+.catalog-item p{margin:0;color:#675d57;font-size:.93rem}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+
+.tag{padding:7px 10px;border:1px solid var(--line);font-size:.7rem;color:var(--wine);background:var(--cream);text-transform:uppercase;letter-spacing:.06em}
+
+.experience{background:linear-gradient(120deg,var(--wine-dark),var(--wine));color:white}
+
+.experience .section-title{color:white}
+
+.experience .eyebrow{color:#efcfce}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:55px;border-top:1px solid rgba(255,255,255,.22)}
+
+.step{padding:28px 28px 20px 0;border-right:1px solid rgba(255,255,255,.22);min-height:220px}
+
+.step:not(:first-child){padding-left:28px}
+
+.step:last-child{border-right:0}
+
+.step-no{font-family:Georgia,serif;font-size:3rem;color:#efcfcf;line-height:1}
+
+.step h3{font-family:Georgia,serif;font-weight:400;font-size:1.45rem;margin:18px 0 8px}
+
+.step p{color:rgba(255,255,255,.74);font-size:.9rem;margin:0}
+
+.menu-section{background:var(--cream)}
+
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}
+
+.menu-card{background:var(--white);padding:26px;border:1px solid var(--line)}
+
+.menu-card h3{font-family:Georgia,serif;color:var(--wine-dark);font-weight:400;font-size:1.7rem;margin:0 0 12px}
+
+.menu-card ul{padding:0;margin:0;list-style:none;color:#635853;font-size:.9rem}
+
+.menu-card li{padding:8px 0;border-bottom:1px solid rgba(75,8,8,.08)}
+
+.menu-card li:last-child{border-bottom:0}
+
+.gallery{background:var(--white)}
+
+.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:260px 260px;gap:14px;margin-top:45px}
+
+.gallery-card{position:relative;overflow:hidden;background:linear-gradient(135deg,#e9dfd7,#cbb4b2);min-height:0}
+
+.gallery-card:nth-child(1){grid-row:span 2;background:linear-gradient(145deg,#5a4132,#2c1c17)}
+
+.gallery-card:nth-child(2){background:linear-gradient(135deg,#e6d4d2,#b68888)}
+
+.gallery-card:nth-child(3){background:linear-gradient(135deg,#eee8df,#cfc0b0)}
+
+.gallery-card:nth-child(4){background:linear-gradient(135deg,#7d1010,#4a0707)}
+
+.gallery-card:nth-child(5){background:linear-gradient(135deg,#d9c6c1,#8d6257)}
+
+.gallery-card:before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.28)}
+
+.gallery-card span{position:absolute;left:25px;bottom:22px;color:white;font-family:Georgia,serif;font-size:1.5rem;z-index:1}
+
+.gallery-card small{display:block;font-family:Arial,sans-serif;font-size:.65rem;text-transform:uppercase;letter-spacing:.13em;margin-top:6px}
+
+.faq{background:var(--cream-2)}
+
+.faq-wrap{max-width:850px;margin:45px auto 0}
+
+.faq-item{border-bottom:1px solid var(--line)}
+
+.faq-q{width:100%;display:flex;justify-content:space-between;gap:20px;text-align:left;background:none;border:0;padding:23px 0;color:var(--wine-dark);font-family:Georgia,serif;font-size:1.35rem}
+
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:#665b55;font-size:.95rem}
+
+.faq-item.active .faq-a{max-height:500px;padding-bottom:22px}
+
+.faq-plus{font-family:Arial;font-size:1.2rem;color:var(--wine)}
+
+.cta{padding:100px 0;background:var(--white)}
+
+.cta-box{background:var(--wine-dark);color:white;padding:clamp(35px,6vw,75px);display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
+
+.cta-box:after{content:"B";position:absolute;right:3%;top:-25%;font-family:Georgia,serif;font-size:23rem;color:rgba(255,255,255,.04)}
+
+.cta h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(2.6rem,5vw,5rem);line-height:.95;margin:0 0 16px;position:relative;z-index:1}
+
+.cta p{max-width:650px;color:rgba(255,255,255,.72);position:relative;z-index:1}
+
+.footer{background:#281a18;color:#d7ccc5;padding:55px 0 25px}
+
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+
+.footer .brand{color:white}
+
+.footer p,.footer a{font-size:.86rem;color:#bfb2aa}
+
+.footer h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:white;margin:0 0 14px}
+
+.footer a{display:block;margin:8px 0}
+
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:18px;font-size:.72rem;color:#968780;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.modal{position:fixed;inset:0;background:rgba(30,15,12,.68);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
+
+.modal.open{display:flex}
+
+.modal-box{width:min(760px,100%);max-height:88vh;overflow:auto;background:var(--white);padding:40px;position:relative;box-shadow:var(--shadow)}
+
+.modal-close{position:absolute;right:18px;top:14px;border:0;background:none;color:var(--wine);font-size:1.8rem}
+
+.modal-box h2{font-family:Georgia,serif;color:var(--wine-dark);font-size:2.5rem;font-weight:400;margin:0 0 10px}
+
+.modal-box h4{color:var(--wine);margin:28px 0 8px;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+
+.modal-box ul{columns:2;gap:35px;padding-left:20px}
+
+.modal-box li{margin:7px 0;color:#5e534d}
+
+.price-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.9rem}
+
+.price-table th,.price-table td{padding:10px;border-bottom:1px solid var(--line);text-align:left}
+
+.price-table th{color:var(--wine);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.field{display:flex;flex-direction:column;gap:6px}
+
+.field.full{grid-column:1/-1}
+
+.field label{font-size:.75rem;color:var(--wine);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+
+.field input,.field select,.field textarea{border:1px solid var(--line);background:var(--cream);padding:13px;outline:none;color:var(--ink)}
+
+.field textarea{min-height:110px;resize:vertical}
+
+.form-note{font-size:.78rem;color:#776b64;margin-top:14px}
+
+.backtop{position:fixed;right:20px;bottom:20px;width:45px;height:45px;border:0;border-radius:50%;background:var(--wine);color:white;display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s;z-index:20}
+
+.backtop.show{opacity:1;pointer-events:auto;transform:none}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:900px){
+
+ .hero-grid,.about-grid,.catalog-top{grid-template-columns:1fr;gap:35px}
+
+ .hero{padding-top:110px}
+
+ .hero-visual{min-height:430px;max-width:650px;width:100%;margin:auto}
+
+ .services-grid{grid-template-columns:repeat(2,1fr)}
+
+ .steps{grid-template-columns:repeat(2,1fr)}
+
+ .step:nth-child(2){border-right:0}
+
+ .menu-grid{grid-template-columns:repeat(2,1fr)}
+
+ .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:260px 220px 220px}
+
+ .gallery-card:nth-child(1){grid-column:span 2;grid-row:auto}
+
+ .cta-box{grid-template-columns:1fr}
+
+ .footer-grid{grid-template-columns:1fr 1fr}
+
+}
+
+@media(max-width:680px){
+
+ .container{width:min(100% - 28px,1160px)}
+
+ .nav-inner{height:68px}
+
+ .nav-links{position:absolute;left:0;right:0;top:68px;background:var(--white);padding:18px 22px;display:none;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+
+ .nav-links.open{display:flex}
+
+ .menu-btn{display:block}
+
+ .nav-cta{display:none}
+
+ .hero h1{font-size:4.2rem}
+
+ .hero h1 .script{margin-left:25vw}
+
+ .hero-visual{min-height:390px}
+
+ .hero-card-main{inset:10px 20px 10px 0}
+
+ .hero-card-main .big-b{font-size:13rem}
+
+ .hero-card-side{width:52%;height:37%;padding:20px}
+
+ .section{padding:75px 0}
+
+ .services-grid,.catalog-grid,.menu-grid,.footer-grid{grid-template-columns:1fr}
+
+ .steps{grid-template-columns:1fr}
+
+ .step,.step:not(:first-child){border-right:0;border-bottom:1px solid rgba(255,255,255,.22);padding:25px 0}
+
+ .step:last-child{border-bottom:0}
+
+ .stats{grid-template-columns:1fr}
+
+ .stat+.stat{border-left:0;border-top:1px solid var(--line);padding-left:0}
+
+ .gallery-grid{grid-template-columns:1fr;grid-template-rows:300px repeat(4,190px)}
+
+ .gallery-card:nth-child(1){grid-column:auto}
+
+ .modal-box{padding:28px 20px}
+
+ .modal-box ul{columns:1}
+
+ .form-grid{grid-template-columns:1fr}
+
+ .field.full{grid-column:auto}
+
+}
+
+
+
+
+
+/* ===== Hero card gallery ===== */
+
+.hero-card-main{background:rgba(255,253,250,.10);background-size:auto;background-position:center;transition:none}
+
+.hero-card-main:before{content:none}
+
+.hero-card-main .big-b{z-index:1;text-shadow:0 4px 30px rgba(255,255,255,.12)}
+
+.hero-gallery-dots{position:absolute;right:8px;bottom:10px;z-index:10;display:flex;gap:6px}
+
+.hero-gallery-dots button{width:26px;height:3px;border:0;padding:0;background:rgba(111,11,11,.35);transition:.25s}
+
+.hero-gallery-dots button.active{width:42px;background:var(--wine)}
+
+@media(max-width:680px){.hero-gallery-dots{right:2px;bottom:2px}.hero-gallery-dots button{width:20px}.hero-gallery-dots button.active{width:32px}}
+
+
+
+/* ===== Visual-first redesign ===== */
+
+.service-image{height:210px;margin:-28px -28px 24px;overflow:hidden;position:relative}
+
+.service-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+
+.service:hover .service-image img{transform:scale(1.05)}
+
+.service-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(45,20,15,.35))}
+
+.service h3{margin-top:0}
+
+.catalog-visual{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px}
+
+.catalog-photo{min-height:390px;overflow:hidden;position:relative}
+
+.catalog-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+
+.catalog-photo:hover img{transform:scale(1.035)}
+
+.catalog-photo span{position:absolute;left:24px;bottom:22px;color:#fff;font-family:Georgia,serif;font-size:1.55rem;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+
+.step-visual{height:145px;margin:-28px -28px 22px;overflow:hidden}
+
+.step-visual img{width:100%;height:100%;object-fit:cover}
+
+.menu-card{overflow:hidden;padding:0}
+
+.menu-card-image{height:190px;overflow:hidden}
+
+.menu-card-image img{width:100%;height:100%;object-fit:cover}
+
+.menu-card-content{padding:26px}
+
+.gallery-card{background:none!important}
+
+.gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+
+.gallery-card:hover img{transform:scale(1.045)}
+
+.gallery-card:before{z-index:1}
+
+.gallery-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(30,12,10,.72))}
+
+.gallery-card span{z-index:2}
+
+.image-note{display:flex;align-items:center;gap:12px;margin-top:20px;font-size:.78rem;color:#766b64}
+
+.image-note:before{content:"";width:36px;height:1px;background:var(--wine)}
+
+@media(max-width:900px){.catalog-visual{grid-template-columns:1fr}.catalog-photo{min-height:300px}}
+
+@media(max-width:680px){.service-image{height:190px}.menu-card-image{height:210px}.catalog-photo{min-height:260px}}
+
+
+
+
+
+/* ==========================================================
+   BECCA STUDIO — CONCEPTO 02: EDITORIAL SOBRIO
+   Cambia composición y jerarquía; conserva paleta e información.
+   ========================================================== */
+:root {
+  /* Paleta original conservada */
+  --wine:#6f0b0b;
+  --wine-dark:#4b0808;
+  --wine-soft:#8f2020;
+  --blush:#dfc9c9;
+  --cream:#f7f3ee;
+  --cream-2:#ece6dd;
+  --taupe:#604938;
+  --ink:#2f2521;
+  --white:#fffdfa;
+  --line:rgba(75,8,8,.14);
+  --shadow:0 20px 60px rgba(53,32,26,.12);
+}
+
+html { scroll-padding-top: 84px; }
+body { letter-spacing: .002em; }
+.container { width:min(1200px,calc(100% - 56px)); }
+.section { padding: clamp(76px,8vw,112px) 0; }
+.section-title { max-width: 880px; font-size:clamp(2.7rem,5vw,5rem); line-height: .99; letter-spacing:-.035em; }
+.eyebrow { font-size:.68rem; letter-spacing:.19em; }
+
+/* Navegación sobria: marca y enlaces sin ornamentos redundantes */
+.nav { background:rgba(247,243,238,.96); border-bottom:1px solid var(--line); }
+.nav-inner { height:78px; }
+.brand { font-size:1.95rem; }
+.nav-links { gap:clamp(15px,2.2vw,30px); }
+.nav-links a { font-size:.69rem; letter-spacing:.07em; }
+.nav-cta { box-shadow:none; padding:12px 17px; min-height:43px; }
+
+/* Portada editorial: un mensaje, una fotografía protagonista */
+.hero { min-height:0; padding:clamp(128px,14vh,165px) 0 92px; background:var(--cream); }
+.hero:after { display:none; }
+.hero-grid { grid-template-columns:.88fr 1.12fr; gap:clamp(45px,7vw,100px); }
+.hero-grid > .reveal:first-child { padding:18px 0; }
+.hero h1 { font-size:clamp(4.4rem,8.2vw,7.8rem); line-height:.82; letter-spacing:-.075em; }
+.hero h1 .script { margin-left:clamp(38px,7vw,105px); color:var(--wine-soft); }
+.hero p { max-width:490px; font-size:1rem; line-height:1.8; }
+.hero-actions { gap:10px; }
+.btn { min-height:46px; padding:13px 19px; font-size:.7rem; box-shadow:none; }
+.btn-primary { box-shadow:none; }
+.logo-line { margin-top:37px; font-size:.68rem; letter-spacing:.1em; }
+.hero-visual { min-height:560px; height:min(58vw,680px); border-radius:0 0 0 150px; overflow:hidden; background-color:var(--cream-2); background-size:cover; background-position:center; box-shadow:0 24px 55px rgba(53,32,26,.13); isolation:isolate; }
+.hero-visual:before { content:""; position:absolute; inset:0; z-index:0; background:linear-gradient(180deg,rgba(75,8,8,.02) 45%,rgba(75,8,8,.25)); pointer-events:none; }
+.hero-gallery-dots { right:22px; bottom:22px; display:flex; gap:7px; z-index:4; }
+.hero-gallery-dots button { width:25px; height:3px; background:rgba(255,253,250,.58); }
+.hero-gallery-dots button.active { width:43px; background:var(--white); }
+
+/* Nosotros: menos efecto de tarjeta y más aire tipográfico */
+.about { background:var(--white); }
+.about-grid { grid-template-columns:.9fr 1.1fr; gap:clamp(45px,8vw,105px); }
+.quote { max-width:520px; font-size:clamp(2.6rem,4.5vw,4.5rem); line-height:1.02; }
+.about-copy { max-width:650px; font-size:.98rem; line-height:1.85; }
+.stats { margin-top:34px; }
+.stat { padding:19px 15px 19px 0; }
+.stat strong { font-size:2.1rem; font-weight:400; }
+.stat span { font-size:.72rem; line-height:1.5; display:block; }
+
+/* Servicios: fichas horizontales, una imagen por servicio, sin cajas pesadas */
+.services { background:var(--cream-2); }
+.services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 38px; margin-top:42px; }
+.service { display:grid; grid-template-columns:minmax(105px,.82fr) minmax(0,1.18fr); grid-template-rows:auto auto auto 1fr auto; align-items:start; column-gap:22px; min-height:0; padding:25px 0 27px; border:0; border-top:1px solid var(--line); background:transparent; overflow:visible; }
+.service:hover { transform:none; box-shadow:none; background:transparent; }
+.service-image { grid-column:1; grid-row:1 / span 5; height:100%; min-height:200px; margin:0; overflow:hidden; background:var(--blush); }
+.service-image img { width:100%; height:100%; object-fit:cover; }
+.service-num { grid-column:2; grid-row:1; margin-top:1px; font-size:.65rem; letter-spacing:.13em; }
+.service h3 { grid-column:2; grid-row:2; margin:13px 0 10px; font-size:clamp(1.55rem,2.15vw,2.1rem); line-height:1.02; }
+.service p { grid-column:2; grid-row:3 / span 2; margin:0 0 14px; font-size:.8rem; line-height:1.7; }
+.service button { grid-column:2; grid-row:5; margin-top:8px; border-bottom:1px solid var(--blush); font-size:.68rem; letter-spacing:.07em; }
+
+/* Catálogo: contenido organizado en módulos editoriales, con menos recuadros */
+.catalog { background:var(--white); }
+.catalog-top { grid-template-columns:1.1fr .9fr; gap:55px; align-items:center; }
+.catalog-note { padding:25px 0 25px 26px; border-left:2px solid var(--wine); background:transparent; color:var(--muted, #665a54); font-size:.89rem; line-height:1.8; }
+.catalog-note strong { color:var(--wine-dark); font-size:1.6rem; line-height:1.1; }
+.catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 52px; margin-top:45px; }
+.catalog-item { padding:25px 0 28px; border-top:1px solid var(--line); }
+.catalog-item h3 { font-size:1.9rem; margin-bottom:9px; }
+.catalog-item p { font-size:.88rem; line-height:1.75; }
+.tags { gap:7px; }
+.tag { padding:6px 9px; background:var(--cream); font-size:.64rem; }
+
+/* Proceso: secuencia tipográfica. Las fotos de stock se reservan para la galería. */
+.experience { background:var(--wine-dark); }
+.experience .section-title { max-width:700px; }
+.steps { grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:45px; border-top:1px solid rgba(255,253,250,.24); }
+.step { min-height:0; padding:24px 24px 10px 0; border-right:1px solid rgba(255,255,255,.2); }
+.step:not(:first-child) { padding-left:24px; }
+.step-visual { display:none; }
+.step-no { font-size:2.7rem; }
+.step h3 { margin:16px 0 9px; font-size:1.45rem; line-height:1.1; }
+.step p { font-size:.83rem; line-height:1.75; }
+
+/* Menú de productos: listado limpio, distinto del resumen de servicios */
+.menu-section { background:var(--cream); }
+.menu-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; margin-top:42px; }
+.menu-card { padding:23px 0 0; border:0; border-top:1px solid var(--line); background:transparent; }
+.menu-card-image { display:none; }
+.menu-card-content { padding:0; }
+.menu-card h3 { margin:0 0 15px; font-size:1.8rem; }
+.menu-card li { padding:9px 0; border-bottom:1px solid rgba(75,8,8,.09); font-size:.84rem; }
+
+/* Galería: el único espacio de la página dedicado a mostrar imágenes */
+.gallery { background:var(--white); }
+.gallery-grid { grid-template-columns:1.12fr .88fr .88fr; grid-template-rows:250px 250px; gap:12px; margin-top:40px; }
+.gallery-card:nth-child(1) { grid-row:span 2; }
+.gallery-card:before { inset:12px; }
+.gallery-card span { left:21px; bottom:20px; font-size:1.55rem; }
+.gallery-card small { font-size:.62rem; }
+.image-note { color:#766b64; }
+
+/* FAQ y contacto */
+.faq { background:var(--cream-2); }
+.faq-wrap { max-width:920px; margin-top:38px; }
+.faq-q { padding:22px 0; font-size:1.38rem; }
+.faq-a { line-height:1.8; }
+.cta { padding:82px 0; background:var(--white); }
+.cta-box { grid-template-columns:1fr auto; gap:36px; padding:clamp(34px,5vw,66px); }
+.cta-box:after { color:rgba(255,255,255,.035); }
+.cta h2 { max-width:800px; font-size:clamp(2.7rem,4.7vw,4.7rem); line-height:.99; }
+.cta p { max-width:610px; font-size:.88rem; line-height:1.8; }
+.cta .btn-light { align-self:center; white-space:nowrap; }
+.footer { padding:48px 0 23px; }
+.footer-grid { grid-template-columns:1.4fr .8fr .8fr; gap:50px; }
+.footer-bottom { margin-top:30px; }
+
+/* Ventanas: sobriedad y lectura cómoda */
+.modal-box { border-top:3px solid var(--wine); }
+.modal-box h2 { line-height:1; }
+.price-table th,.price-table td { padding:12px 10px; }
+.field input,.field select,.field textarea { border-radius:0; }
+
+@media(max-width:1000px) {
+  .hero-grid { gap:42px; }
+  .hero-visual { min-height:470px; }
+  .services-grid { gap:0 24px; }
+  .service { grid-template-columns:minmax(95px,.72fr) minmax(0,1.28fr); column-gap:16px; }
+  .service-image { min-height:185px; }
+  .service h3 { font-size:1.7rem; }
+  .steps { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .step:nth-child(2) { border-right:0; }
+  .step:nth-child(3) { padding-left:0; }
+  .gallery-grid { grid-template-rows:220px 220px; }
+}
+@media(max-width:760px) {
+  .container { width:min(100% - 36px,1200px); }
+  .section { padding:76px 0; }
+  .nav-inner { height:70px; }
+  .nav-links { top:70px; }
+  .hero { padding:112px 0 68px; }
+  .hero-grid { grid-template-columns:1fr; gap:32px; }
+  .hero-grid > .reveal:first-child { padding:0; }
+  .hero h1 { font-size:clamp(4.5rem,17vw,6.8rem); }
+  .hero h1 .script { margin-left:21vw; }
+  .hero-visual { height:108vw; min-height:360px; max-height:540px; border-radius:0 0 0 100px; }
+  .about-grid,.catalog-top { grid-template-columns:1fr; gap:27px; }
+  .services-grid { grid-template-columns:1fr; }
+  .service { grid-template-columns:minmax(115px,.72fr) minmax(0,1.28fr); column-gap:20px; padding:22px 0; }
+  .service-image { min-height:190px; }
+  .service h3 { font-size:1.85rem; }
+  .catalog-grid { gap:0 28px; }
+  .menu-grid { grid-template-columns:1fr; gap:24px; }
+  .menu-card { padding-top:20px; }
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:250px 190px 190px; }
+  .gallery-card:nth-child(1) { grid-column:span 2; grid-row:auto; }
+  .cta-box { grid-template-columns:1fr; }
+  .cta .btn-light { justify-self:start; }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:30px; }
+}
+@media(max-width:480px) {
+  .container { width:calc(100% - 30px); }
+  .hero { padding-top:100px; }
+  .hero-actions { align-items:stretch; flex-direction:column; }
+  .hero-actions .btn { width:100%; }
+  .hero-visual { min-height:330px; border-radius:0 0 0 74px; }
+  .stats { grid-template-columns:1fr; }
+  .stat+.stat { padding-left:0; border-left:0; border-top:1px solid var(--line); }
+  .service { grid-template-columns:105px minmax(0,1fr); column-gap:14px; }
+  .service-image { min-height:170px; }
+  .service h3 { font-size:1.55rem; }
+  .service p { font-size:.77rem; }
+  .service button { font-size:.62rem; }
+  .catalog-grid { grid-template-columns:1fr; }
+  .steps { grid-template-columns:1fr; }
+  .step,.step:not(:first-child),.step:nth-child(3) { padding:21px 0; border-right:0; border-bottom:1px solid rgba(255,255,255,.2); }
+  .step:last-child { border-bottom:0; }
+  .gallery-grid { grid-template-columns:1fr; grid-template-rows:290px repeat(4,190px); }
+  .gallery-card:nth-child(1) { grid-column:auto; }
+  .footer-grid { grid-template-columns:1fr; }
+  .modal-box { padding:28px 18px; }
+  .modal-box ul { columns:1; }
+  .form-grid { grid-template-columns:1fr; }
+  .field.full { grid-column:auto; }
+}
+
+
+
+/* =============================================================
+   AJUSTE RESPONSIVE FINAL — escritorio, tablet y móvil
+   Reglas al final para unificar y corregir los estilos anteriores.
+   ============================================================= */
+:root { --nav-height: 78px; }
+html {
+  scroll-padding-top: calc(var(--nav-height) + 12px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  min-width: 320px;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+.container { width: min(1200px, calc(100% - 48px)); }
+img { max-width: 100%; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button, input, select, textarea { max-width: 100%; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(143,32,32,.48);
+  outline-offset: 3px;
+}
+.btn { min-height: 46px; }
+.section-title { overflow-wrap: anywhere; }
+.service p, .catalog-item p, .faq-a { overflow-wrap: break-word; }
+
+/* La navegación cambia a menú desplegable antes de que los enlaces se aprieten. */
+@media (max-width: 1060px) {
+  :root { --nav-height: 70px; }
+  .nav-inner { height: var(--nav-height); gap: 12px; }
+  .menu-btn {
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.45rem;
+  }
+  .menu-btn:hover, .menu-btn[aria-expanded="true"] { background: rgba(111,11,11,.07); }
+  .nav-cta { display: none; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    width: min(360px, calc(100vw - 28px));
+    max-height: min(72svh, 520px);
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 12px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-top: 0;
+    box-shadow: 0 18px 38px rgba(53,32,26,.14);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 12px 14px;
+    border-radius: 3px;
+    font-size: .76rem;
+    opacity: 1;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible { background: var(--cream); }
+}
+
+/* Pantallas medianas: conservamos la estética editorial sin comprimir contenido. */
+@media (min-width: 761px) and (max-width: 950px) {
+  .container { width: min(100% - 48px, 1200px); }
+  .hero-grid { grid-template-columns: .9fr 1.1fr; gap: 28px; }
+  .hero h1 { font-size: clamp(4rem, 7.5vw, 5.8rem); }
+  .hero h1 .script { margin-left: clamp(28px, 5vw, 55px); }
+  .hero-visual { height: 500px; min-height: 0; border-radius: 0 0 0 100px; }
+  .services-grid { grid-template-columns: 1fr; gap: 0; }
+  .service { grid-template-columns: minmax(160px, .55fr) minmax(0, 1.45fr); column-gap: 24px; }
+  .service-image { min-height: 210px; }
+  .service h3 { font-size: clamp(1.75rem, 3vw, 2.15rem); }
+  .about-grid { gap: 38px; }
+  .gallery-grid { grid-template-rows: 220px 220px; }
+  .footer-grid { gap: 28px; }
+}
+
+/* Móvil y tablet vertical: jerarquía clara y controles grandes. */
+@media (max-width: 760px) {
+  :root { --nav-height: 70px; }
+  .container { width: calc(100% - 36px); }
+  .section { padding: clamp(58px, 11vw, 76px) 0; }
+  .section-title { font-size: clamp(2.35rem, 8.7vw, 3.8rem); line-height: 1.02; margin: 13px 0 18px; }
+  .eyebrow { font-size: .64rem; letter-spacing: .15em; }
+  .lead { font-size: .96rem; line-height: 1.75; }
+  .nav-inner { height: var(--nav-height); }
+  .brand { font-size: 1.8rem; }
+  .brand span { font-size: .9rem; margin-left: 36px; }
+
+  .hero { min-height: 0; padding: 108px 0 58px; }
+  .hero-grid { grid-template-columns: minmax(0,1fr); gap: 28px; }
+  .hero-grid > .reveal:first-child { padding: 0; }
+  .hero h1 { font-size: clamp(3.8rem, 15vw, 5.6rem); line-height: .86; margin: 16px 0 22px; }
+  .hero h1 .script { margin-left: clamp(28px, 18vw, 72px); }
+  .hero p { font-size: .98rem; line-height: 1.75; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; margin-top: 24px; }
+  .hero-actions .btn { width: 100%; }
+  .logo-line { margin-top: 25px; font-size: .61rem; letter-spacing: .07em; }
+  .logo-line i { width: 26px; flex: 0 0 26px; }
+  .hero-visual {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    width: 100%;
+    aspect-ratio: 4 / 4.45;
+    border-radius: 0 0 0 clamp(48px, 14vw, 82px);
+    background-position: center;
+  }
+  .hero-gallery-dots { right: 12px; bottom: 10px; gap: 2px; }
+  .hero-gallery-dots button {
+    display: grid;
+    place-items: center;
+    width: 31px;
+    min-width: 31px;
+    height: 32px;
+    min-height: 32px;
+    padding: 0;
+    background: transparent;
+  }
+  .hero-gallery-dots button::after {
+    content: "";
+    display: block;
+    width: 17px;
+    height: 3px;
+    background: rgba(255,253,250,.7);
+  }
+  .hero-gallery-dots button.active { width: 38px; }
+  .hero-gallery-dots button.active::after { width: 27px; background: #fff; }
+
+  .about-grid, .catalog-top { grid-template-columns: minmax(0,1fr); gap: 24px; }
+  .quote { font-size: clamp(2.45rem, 9vw, 3.7rem); }
+  .about-copy { font-size: .95rem; line-height: 1.8; }
+  .stats { grid-template-columns: repeat(3, minmax(0,1fr)); margin-top: 26px; }
+  .stat { padding: 14px 10px 14px 0; }
+  .stat + .stat { padding-left: 12px; }
+  .stat strong { font-size: clamp(1.45rem, 5.7vw, 1.9rem); }
+  .stat span { font-size: .68rem; line-height: 1.4; }
+
+  .services-grid { grid-template-columns: minmax(0,1fr); gap: 0; margin-top: 30px; }
+  .service {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    grid-template-rows: auto;
+    gap: 0;
+    min-width: 0;
+    padding: 0 0 26px;
+    margin: 0 0 26px;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    overflow: visible;
+  }
+  .service:last-child { margin-bottom: 0; border-bottom: 0; }
+  .service-image {
+    grid-column: 1;
+    grid-row: auto;
+    width: 100%;
+    height: clamp(190px, 56vw, 280px);
+    min-height: 0;
+    margin: 0 0 17px;
+    overflow: hidden;
+  }
+  .service-image img { width: 100%; height: 100%; object-fit: cover; }
+  .service-num { grid-column: 1; grid-row: auto; font-size: .66rem; }
+  .service h3 { grid-column: 1; grid-row: auto; margin: 9px 0 11px; font-size: clamp(1.75rem, 7vw, 2.25rem); line-height: 1.04; }
+  .service p { grid-column: 1; grid-row: auto; margin: 0 0 13px; font-size: .9rem; line-height: 1.7; }
+  .service button {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 2px;
+    padding: 8px 0;
+    font-size: .7rem;
+  }
+
+  .catalog-note { padding: 18px 0 18px 18px; font-size: .88rem; }
+  .catalog-note strong { font-size: 1.4rem; }
+  .catalog-grid { grid-template-columns: minmax(0,1fr); gap: 0; margin-top: 28px; }
+  .catalog-item { padding: 22px 0; }
+  .catalog-item h3 { font-size: 1.65rem; }
+  .tags { gap: 7px; }
+  .tag { font-size: .64rem; line-height: 1.4; }
+
+  .steps { grid-template-columns: minmax(0,1fr); margin-top: 32px; }
+  .step, .step:not(:first-child), .step:nth-child(3) {
+    min-height: 0;
+    padding: 22px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.22);
+  }
+  .step:last-child { border-bottom: 0; }
+  .step-no { font-size: 2.4rem; }
+  .step h3 { margin: 11px 0 7px; }
+  .step p { font-size: .88rem; line-height: 1.7; }
+
+  .menu-grid { grid-template-columns: minmax(0,1fr); gap: 24px; margin-top: 30px; }
+  .menu-card { padding-top: 19px; border-top: 1px solid var(--line); }
+  .menu-card h3 { font-size: 1.6rem; }
+  .menu-card li { padding: 9px 0; font-size: .88rem; }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-rows: clamp(210px, 58vw, 270px) repeat(2, clamp(150px, 42vw, 190px));
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .gallery-card:nth-child(1) { grid-column: 1 / -1; grid-row: auto; }
+  .gallery-card:before { inset: 9px; }
+  .gallery-card span { left: 14px; bottom: 14px; right: 10px; font-size: 1.15rem; line-height: 1.1; }
+  .gallery-card small { font-size: .55rem; letter-spacing: .1em; }
+  .image-note { align-items: flex-start; font-size: .75rem; line-height: 1.6; }
+
+  .faq-wrap { margin-top: 26px; }
+  .faq-q { gap: 14px; padding: 19px 0; font-size: clamp(1.08rem, 4.5vw, 1.28rem); line-height: 1.3; }
+  .faq-plus { flex: 0 0 auto; }
+  .faq-a { font-size: .9rem; line-height: 1.75; }
+  .cta { padding: 58px 0; }
+  .cta-box { grid-template-columns: minmax(0,1fr); gap: 20px; padding: clamp(24px, 7vw, 38px); }
+  .cta h2 { font-size: clamp(2.25rem, 9vw, 3.6rem); }
+  .cta p { font-size: .88rem; line-height: 1.75; }
+  .cta .btn-light { justify-self: stretch; width: 100%; white-space: normal; }
+
+  .footer { padding: 38px 0 20px; }
+  .footer-grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
+  .footer-grid > div:first-child { max-width: 420px; }
+  .footer-bottom { flex-direction: column; gap: 9px; margin-top: 25px; line-height: 1.6; }
+
+  .backtop { right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); width: 46px; height: 46px; }
+  .modal { align-items: flex-end; padding: 10px 10px calc(10px + env(safe-area-inset-bottom)); }
+  .modal-box {
+    width: 100%;
+    max-height: min(90svh, 820px);
+    padding: 28px 20px calc(22px + env(safe-area-inset-bottom));
+    overflow: auto;
+    overscroll-behavior: contain;
+    border-top: 3px solid var(--wine);
+    border-radius: 12px 12px 4px 4px;
+  }
+  .modal-box h2 { max-width: calc(100% - 26px); font-size: clamp(1.85rem, 8vw, 2.5rem); line-height: 1.04; }
+  .modal-close { position: sticky; top: 0; float: right; z-index: 2; width: 40px; height: 40px; margin: -13px -8px 0 10px; display: grid; place-items: center; background: var(--white); border-radius: 50%; }
+  .price-table { table-layout: fixed; font-size: .84rem; }
+  .price-table th, .price-table td { padding: 10px 7px; overflow-wrap: anywhere; vertical-align: top; }
+  .price-table th:first-child, .price-table td:first-child { width: 72%; }
+  .price-table th:last-child, .price-table td:last-child { width: 28%; }
+  .form-grid { grid-template-columns: minmax(0,1fr); gap: 13px; }
+  .field.full { grid-column: auto; }
+  .field input, .field select, .field textarea { width: 100%; min-width: 0; min-height: 46px; padding: 12px; font-size: 16px; }
+  .field textarea { min-height: 110px; }
+  #quoteForm > .btn { width: 100%; }
+  .form-note { line-height: 1.6; }
+}
+
+/* Teléfonos estrechos. La galería sigue siendo un mosaico sin alargar la página. */
+@media (max-width: 390px) {
+  .container { width: calc(100% - 28px); }
+  .brand { font-size: 1.68rem; }
+  .brand span { margin-left: 32px; font-size: .84rem; }
+  .hero { padding-top: 98px; }
+  .hero h1 { font-size: clamp(3.55rem, 15.8vw, 4.4rem); }
+  .hero h1 .script { margin-left: 17vw; }
+  .stats { grid-template-columns: minmax(0,1fr); }
+  .stat, .stat + .stat { padding: 12px 0; border-left: 0; }
+  .stat + .stat { border-top: 1px solid var(--line); }
+  .stat strong { font-size: 1.75rem; }
+  .stat span { font-size: .72rem; }
+  .gallery-grid { grid-template-rows: 205px 155px 155px; gap: 8px; }
+  .gallery-card span { font-size: 1.02rem; }
+  .modal-box { padding-left: 16px; padding-right: 16px; }
+}
+
+@media (max-width: 350px) {
+  .container { width: calc(100% - 24px); }
+  .hero h1 { font-size: 3.35rem; }
+  .hero h1 .script { margin-left: 15vw; }
+  .hero-gallery-dots { right: 5px; bottom: 5px; gap: 0; }
+  .hero-gallery-dots button { min-width: 27px; width: 27px; }
+  .hero-gallery-dots button.active { width: 32px; }
+  .hero-gallery-dots button::after { width: 15px; }
+  .hero-gallery-dots button.active::after { width: 23px; }
+}
+
+@media (max-height: 540px) and (orientation: landscape) and (max-width: 900px) {
+  .hero { padding-top: 92px; }
+  .hero-grid { grid-template-columns: .9fr 1.1fr; gap: 24px; }
+  .hero-visual { aspect-ratio: auto; height: 65vh; min-height: 260px; border-radius: 0 0 0 54px; }
+  .hero h1 { font-size: clamp(3.6rem, 9vw, 5.5rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+
+body.modal-open { overflow: hidden; }
+/* El motivo decorativo no debe bloquear el botón de cotización. */
+.cta-box { isolation: isolate; }
+.cta-box:after { z-index: 0; pointer-events: none; }
+.cta-box > div, .cta-box > .btn { position: relative; z-index: 1; }
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<header class="nav" id="nav">
+
+ <div class="container nav-inner">
+
+  <a href="#inicio" class="brand" aria-label="Becca Studio">Becca<span>Studio</span></a>
+
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-controls="navLinks" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+
+  <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+
+   <a href="#nosotros">Nosotros</a>
+
+   <a href="#servicios">Servicios</a>
+
+   <a href="#catalogo">Experiencias</a>
+
+   <a href="#proceso">Proceso</a>
+
+   <a href="#galeria">Galería</a>
+
+   <a href="#faq">FAQ</a>
+
+  </nav>
+
+  <a class="btn btn-primary nav-cta" href="#cotizar">Cotizar evento</a>
+
+ </div>
+
+</header>
+
+
+
+<main>
+
+<section class="hero" id="inicio">
+
+ <div class="container hero-grid">
+
+  <div class="reveal">
+
+   <div class="eyebrow">Experiencias para celebrar</div>
+
+   <h1>Becca <span class="script">Studio</span></h1>
+
+   <p>Mesas, postres, botanas y barras diseñadas para hacer especial cada celebración.</p>
+
+   <div class="hero-actions">
+
+    <a class="btn btn-primary" href="#servicios">Ver experiencias</a>
+
+    <a class="btn btn-outline" href="#cotizar">Solicitar cotización</a>
+
+   </div>
+
+   <div class="logo-line"><i></i>Detalles, sabor y presentación</div>
+
+  </div>
+
+
+
+  <div class="hero-visual reveal">
+
+   <div class="hero-gallery-dots" aria-label="Controles de galería">
+
+    <button class="active" data-slide="0" aria-label="Imagen 1"></button>
+
+    <button data-slide="1" aria-label="Imagen 2"></button>
+
+    <button data-slide="2" aria-label="Imagen 3"></button>
+
+    <button data-slide="3" aria-label="Imagen 4"></button>
+
+    <button data-slide="4" aria-label="Imagen 5"></button>
+
+    <button data-slide="5" aria-label="Imagen 6"></button>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="section about" id="nosotros">
+
+ <div class="container about-grid">
+
+  <div class="reveal">
+
+   <div class="eyebrow">Nuestra esencia</div>
+
+   <p class="quote">Cada celebración merece una experiencia <em>especial.</em></p>
+
+  </div>
+
+  <div class="about-copy reveal">
+
+   <p>En Becca Studio reunimos sabores, presentación, decoración y servicio para transformar una mesa o una barra en parte de la experiencia de tu evento.</p>
+
+   <p>La propuesta se puede personalizar mediante la elección de dulces, postres, snacks, montaje y detalles visuales según el servicio contratado.</p>
+
+   <div class="stats">
+
+    <div class="stat"><strong>6+</strong><span>Experiencias principales</span></div>
+
+    <div class="stat"><strong>80–300</strong><span>Personas según servicio</span></div>
+
+    <div class="stat"><strong>10</strong><span>Opciones a elegir en varios paquetes</span></div>
+
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="section services" id="servicios">
+
+ <div class="container">
+
+  <div class="eyebrow reveal">Servicios</div>
+
+  <h2 class="section-title reveal">Encuentra la experiencia <em>ideal</em> para tu evento.</h2>
+
+  <p class="lead reveal">Elige una experiencia. La imagen te muestra la idea; entra en “Ver detalles” para conocer inclusiones y precios.</p>
+
+  <div class="services-grid">
+
+   <article class="service reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1674294994252-aded42f55d7f?auto=format&fit=crop&w=1000&q=85" alt="Mesa de dulces y botanas para una celebración temática" loading="lazy"></div><span class="service-num">01 · MESAS</span><h3>Mesa de dulces y botanas</h3><p>Mix de botanas, selección de dulces, montaje, mobiliario, decoración, letrero neón y personal de servicio.</p><button data-service="dulces">Ver detalles →</button></article>
+
+   <article class="service reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1676734628521-3db51492131a?auto=format&fit=crop&w=1000&q=85" alt="Presentación de postres mini para eventos" loading="lazy"></div><span class="service-num">02 · MESAS</span><h3>Mesa de postres y botanas</h3><p>Postres mini seleccionables, botanas, montaje y una presentación pensada para compartir.</p><button data-service="postres">Ver detalles →</button></article>
+
+   <article class="service reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1744848279507-f6e20e647792?auto=format&fit=crop&w=1000&q=85" alt="Mesa gourmet de quesos, carnes frías, frutas y acompañamientos" loading="lazy"></div><span class="service-num">03 · GOURMET</span><h3>Carnes frías y quesos</h3><p>Variedad gourmet con pan artesanal, mermeladas, frutas, nueces y decoración floral.</p><button data-service="gourmet">Ver detalles →</button></article>
+
+   <article class="service reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1751929650733-342d9763f838?auto=format&fit=crop&w=1000&q=85" alt="Crepa dulce con fruta y salsa de chocolate" loading="lazy"></div><span class="service-num">04 · BARRAS</span><h3>Barra de crepas</h3><p>Crepas preparadas al momento con opciones dulces y saladas, personal y decoración.</p><button data-service="crepas">Ver detalles →</button></article>
+
+   <article class="service reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1750010274830-1155de5373cf?auto=format&fit=crop&w=1000&q=85" alt="Preparación de michelada con escarchado y cerveza" loading="lazy"></div><span class="service-num">05 · BARRAS</span><h3>Barra de micheladas</h3><p>Ingredientes, decoración de barra, una cerveza por persona y personal de servicio.</p><button data-service="micheladas">Ver detalles →</button></article>
+
+   <article class="service reveal"><div class="service-image"><img src="https://images.unsplash.com/photo-1761315412389-e178e0bdbec9?auto=format&fit=crop&w=1000&q=85" alt="Botana mexicana preparada con totopos y acompañamientos" loading="lazy"></div><span class="service-num">06 · BARRAS</span><h3>Barra de dorilocos</h3><p>Doritos preparados, snacks seleccionables, vasos personalizados, salsas y decoración.</p><button data-service="dorilocos">Ver detalles →</button></article>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="section catalog" id="catalogo">
+
+ <div class="container">
+
+  <div class="catalog-top">
+
+   <div class="reveal">
+
+    <div class="eyebrow">Catálogo de experiencias</div>
+
+    <h2 class="section-title">Sabores, detalles y <em>personalización.</em></h2>
+
+   </div>
+
+   <div class="catalog-note reveal"><strong>Una propuesta flexible.</strong>Varios servicios permiten elegir productos de las listas disponibles y seleccionar entre distintas opciones de montaje.</div>
+
+  </div>
+
+  <div class="catalog-grid">
+
+   <div class="catalog-item reveal"><h3>Dulces y botanas</h3><p>Opciones picositas, chocolate, dulces mexicanos, salados y postres.</p><div class="tags"><span class="tag">10 dulces a elegir</span><span class="tag">Mix de botanas</span><span class="tag">Personalización</span></div></div>
+
+   <div class="catalog-item reveal"><h3>Postres mini</h3><p>Brownies, cupcakes, donitas, carlotas, mousse, panna cotta, cheesecakes, trufas, pastelitos y churros.</p><div class="tags"><span class="tag">Degustación de 3 postres</span><span class="tag">Presentaciones mini</span></div></div>
+
+   <div class="catalog-item reveal"><h3>Experiencia gourmet</h3><p>Carnes frías, quesos gourmet, pan artesanal, mermeladas, frutos, aceitunas y mezcla de frutas deshidratadas y nueces.</p><div class="tags"><span class="tag">Decoración floral</span><span class="tag">Frutas y frutos secos</span></div></div>
+
+   <div class="catalog-item reveal"><h3>Barras preparadas al momento</h3><p>Opciones de crepas dulces y saladas, además de barras de micheladas y dorilocos para eventos.</p><div class="tags"><span class="tag">Personal de servicio</span><span class="tag">Montaje</span><span class="tag">Desmontaje</span></div></div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="section experience" id="proceso">
+
+ <div class="container">
+
+  <div class="eyebrow reveal">¿Cómo trabajamos?</div>
+
+  <h2 class="section-title reveal">Tu evento, paso a <em>paso.</em></h2>
+
+  <div class="steps">
+
+   <div class="step reveal"><div class="step-visual"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85" alt="Cuéntanos tu idea" loading="lazy"></div><div class="step-no">01</div><h3>Cuéntanos tu idea</h3><p>Comparte los datos de tu celebración, invitados y los servicios que te interesan.</p></div>
+
+   <div class="step reveal"><div class="step-visual"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85" alt="Elige tu experiencia" loading="lazy"></div><div class="step-no">02</div><h3>Elige tu experiencia</h3><p>Selecciona la propuesta que mejor se adapte al tipo y tamaño de tu evento.</p></div>
+
+   <div class="step reveal"><div class="step-visual"><img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?auto=format&fit=crop&w=900&q=85" alt="Personalizamos" loading="lazy"></div><div class="step-no">03</div><h3>Personalizamos</h3><p>Según el servicio, se pueden elegir sabores, productos, presentación y tipo de montaje.</p></div>
+
+   <div class="step reveal"><div class="step-visual"><img src="https://images.unsplash.com/photo-1519671282429-b44660ead0a7?auto=format&fit=crop&w=900&q=85" alt="Disfruta el momento" loading="lazy"></div><div class="step-no">04</div><h3>Disfruta el momento</h3><p>El servicio contempla montaje y desmontaje en los paquetes donde así se especifica.</p></div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="section menu-section">
+
+ <div class="container">
+
+  <div class="eyebrow reveal">Algunas opciones disponibles</div>
+
+  <h2 class="section-title reveal">Elige sabores que hablen de <em>tu evento.</em></h2>
+
+  <div class="menu-grid">
+
+   <article class="menu-card reveal"><div class="menu-card-image"><img src="https://images.unsplash.com/photo-1575377427642-087cf684f04d?auto=format&fit=crop&w=900&q=85" alt="Dulces picositos y mexicanos" loading="lazy"></div><div class="menu-card-content"><h3>Dulces picositos y mexicanos</h3><ul><li>Pelonetes y Pelón Pelo Rico</li><li>Pica fresas y Pulparindo</li><li>Tarugos y mangos deshidratados</li><li>Tamborines</li><li>Mazapanes y obleas</li><li>Amaranto y palanquetas</li><li>Churros y tamarindos</li></ul></div></article>
+
+   <article class="menu-card reveal"><div class="menu-card-image"><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85" alt="Chocolate y postres" loading="lazy"></div><div class="menu-card-content"><h3>Chocolate y postres</h3><ul><li>Malvaviscos de chocolate</li><li>Chocolates y Bubulubus</li><li>Hojuelas y pasitas de chocolate</li><li>Mini mamuts y Duvalín</li><li>Cupcakes mini</li><li>Carlota de limón</li><li>Cheesecake de frutos rojos</li></ul></div></article>
+
+   <article class="menu-card reveal"><div class="menu-card-image"><img src="https://images.unsplash.com/photo-1621939514649-280e2aa97f64?auto=format&fit=crop&w=900&q=85" alt="Snacks" loading="lazy"></div><div class="menu-card-content"><h3>Snacks</h3><ul><li>Papas naturales, adobadas y queso</li><li>Cacahuates japoneses, enchilados y salados</li><li>Churritos naturales y adobados</li><li>Jícama, pepino y zanahoria</li><li>Paletas de hielo</li><li>Gomitas y Panditas</li><li>Chicharrones y Skwinkles</li></ul></div></article>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="section gallery" id="galeria">
+
+ <div class="container">
+
+  <div class="eyebrow reveal">Universo visual</div>
+
+  <h2 class="section-title reveal">Una estética <em>Becca Studio.</em></h2>
+
+  <p class="lead reveal">Primero mira la experiencia; después conoce los detalles. Las fotografías actuales funcionan como referencia visual y pueden sustituirse por imágenes reales de Becca Studio.</p>
+
+  <div class="gallery-grid reveal">
+
+   <div class="gallery-card"><img src="https://images.unsplash.com/photo-1774660811213-37f1b8e8f00c?auto=format&fit=crop&w=1400&q=85" alt="Mesa de postres con pastel y arreglos florales para una celebración" loading="lazy"><span>Mesas para celebrar<small>Presentación y detalle</small></span></div>
+
+   <div class="gallery-card"><img src="https://images.unsplash.com/photo-1722293859274-5f1154e95d3a?auto=format&fit=crop&w=1000&q=85" alt="Dulces de colores para una mesa temática" loading="lazy"><span>Dulces<small>Selección personalizada</small></span></div>
+
+   <div class="gallery-card"><img src="https://images.unsplash.com/photo-1776267890245-a54746d62d1a?auto=format&fit=crop&w=1000&q=85" alt="Mesa de postres y repostería para un evento" loading="lazy"><span>Postres<small>Presentaciones mini</small></span></div>
+
+   <div class="gallery-card"><img src="https://images.unsplash.com/photo-1672698977671-9eb551549dcb?auto=format&fit=crop&w=1000&q=85" alt="Buffet de alimentos y botanas para compartir en un evento" loading="lazy"><span>Experiencias<small>Barras para eventos</small></span></div>
+
+   <div class="gallery-card"><img src="https://images.unsplash.com/photo-1745970800085-6a107073ca46?auto=format&fit=crop&w=1000&q=85" alt="Tabla gourmet de quesos, carnes frías y frutas" loading="lazy"><span>Detalles<small>Decoración y montaje</small></span></div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="section faq" id="faq">
+
+ <div class="container">
+
+  <div class="eyebrow reveal">Preguntas frecuentes</div>
+
+  <h2 class="section-title reveal">Lo que necesitas <em>saber.</em></h2>
+
+  <div class="faq-wrap">
+
+   <div class="faq-item reveal"><button class="faq-q">¿Qué incluye el servicio?<span class="faq-plus">+</span></button><div class="faq-a">Cada experiencia tiene inclusiones distintas. En el catálogo se especifican elementos como montaje, desmontaje, mobiliario, decoración, personal de servicio y productos seleccionados según el paquete.</div></div>
+
+   <div class="faq-item reveal"><button class="faq-q">¿Puedo elegir los productos?<span class="faq-plus">+</span></button><div class="faq-a">Sí, varios servicios permiten elegir productos de las listas disponibles. Por ejemplo, algunos paquetes incluyen la selección de 10 dulces, postres o snacks.</div></div>
+
+   <div class="faq-item reveal"><button class="faq-q">¿Hay servicios adicionales?<span class="faq-plus">+</span></button><div class="faq-a">El catálogo contempla postres, vasos de charcutería, paletas locas, nieves, dorilocos y pastel simbólico como servicios adicionales. El documento establece condiciones de contratación para estos servicios.</div></div>
+
+   <div class="faq-item reveal"><button class="faq-q">¿Cómo solicito una cotización?<span class="faq-plus">+</span></button><div class="faq-a">Puedes dejar los datos básicos de tu evento y los servicios de tu interés. La versión publicada debe configurar el canal real de contacto de Becca Studio para recibir la solicitud.</div></div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+
+<section class="cta" id="cotizar">
+
+ <div class="container">
+
+  <div class="cta-box reveal">
+
+   <div><h2>Hablemos de tu próximo <em style="font-family:'Brush Script MT',cursive;font-weight:400">momento especial.</em></h2><p>Cuéntanos sobre tu evento y los servicios que te interesan. Esta maqueta incluye el formulario de captura; el destino real del envío se configura con el WhatsApp, correo o sistema de recepción que utilice Becca Studio.</p></div>
+
+   <button class="btn btn-light" id="quoteBtn">Solicitar cotización</button>
+
+  </div>
+
+ </div>
+
+</section>
+
+</main>
+
+
+
+<footer class="footer">
+
+ <div class="container">
+
+  <div class="footer-grid">
+
+   <div><a href="#inicio" class="brand">Becca<span>Studio</span></a><p>Mesas, postres, botanas y barras para crear experiencias que acompañen tus celebraciones.</p></div>
+
+   <div><h4>Navegación</h4><a href="#servicios">Servicios</a><a href="#catalogo">Experiencias</a><a href="#proceso">Proceso</a><a href="#cotizar">Cotización</a></div>
+
+   <div><h4>Redes</h4><a href="https://www.instagram.com/becca.studioo" target="_blank" rel="noopener">Instagram · @becca.studioo</a><p>Datos de contacto adicionales por configurar.</p></div>
+
+  </div>
+
+  <div class="footer-bottom"><span>© 2026 Becca Studio. Todos los derechos reservados.</span><span>Landing demo · Información comercial basada en el catálogo proporcionado.</span></div>
+
+ </div>
+
+</footer>
+
+
+
+<button class="backtop" id="backtop" aria-label="Volver arriba">↑</button>
+
+
+
+<div class="modal" id="serviceModal" aria-hidden="true"><div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" type="button" aria-label="Cerrar detalles">×</button><div id="modalContent"></div></div></div>
+
+
+
+<div class="modal" id="quoteModal" aria-hidden="true">
+
+ <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="quoteTitle">
+
+  <button class="modal-close" id="quoteClose" type="button" aria-label="Cerrar formulario">×</button>
+
+  <h2 id="quoteTitle">Solicita una cotización</h2>
+
+  <p>Completa los datos principales de tu evento.</p>
+
+  <form id="quoteForm">
+
+   <div class="form-grid">
+
+    <div class="field"><label for="quoteNombre">Nombre</label><input id="quoteNombre" required name="nombre" autocomplete="name" placeholder="Tu nombre"></div>
+
+    <div class="field"><label for="quoteTelefono">Teléfono</label><input id="quoteTelefono" required name="telefono" type="tel" inputmode="tel" autocomplete="tel" placeholder="Tu teléfono"></div>
+
+    <div class="field"><label for="quoteCorreo">Correo</label><input id="quoteCorreo" type="email" name="correo" autocomplete="email" inputmode="email" placeholder="correo@ejemplo.com"></div>
+
+    <div class="field"><label for="quoteFecha">Fecha del evento</label><input id="quoteFecha" type="date" name="fecha"></div>
+
+    <div class="field"><label for="quoteEvento">Tipo de evento</label><select id="quoteEvento" name="evento"><option>Selecciona una opción</option><option>Boda</option><option>XV años</option><option>Cumpleaños</option><option>Evento empresarial</option><option>Otro</option></select></div>
+
+    <div class="field"><label for="quoteInvitados">Número de invitados</label><select id="quoteInvitados" name="invitados"><option>Selecciona</option><option>50–80</option><option>80–100</option><option>100–120</option><option>120–150</option><option>150–200</option><option>200–250</option><option>250–300</option><option>Más de 300</option></select></div>
+
+    <div class="field full"><label for="quoteServicios">Servicios de interés</label><input id="quoteServicios" name="servicios" placeholder="Ej. Mesa de dulces y botanas, barra de crepas"></div>
+
+    <div class="field full"><label for="quoteMensaje">Cuéntanos más</label><textarea id="quoteMensaje" name="mensaje" placeholder="Ubicación, idea general del evento o detalles que consideres importantes"></textarea></div>
+
+   </div>
+
+   <button class="btn btn-primary" style="margin-top:20px" type="submit">Preparar solicitud</button>
+
+   <div class="form-note" id="formResult">La maqueta genera una solicitud estructurada para conectarla posteriormente al canal de contacto real.</div>
+
+  </form>
+
+ </div>
+
+</div>
+
+
+
+<script>
+
+const services = {
+
+ dulces:{
+
+  title:"Mesa de dulces y botanas",
+
+  intro:"Incluye mix de botanas preparados, 10 dulces a elegir, opción de montaje tradicional o set de mamparas, mobiliario de temporada y bases de alturas, cajitas y etiquetas personalizadas, 10 floreros mini con follaje y flor, letrero neón, montaje, desmontaje y personal de servicio durante 3 horas.",
+
+  prices:[["100 pax","$12,500"],["120 pax","$15,000"],["150 pax","$18,750"],["200 pax","$24,000"],["250 pax","$30,000"],["300 pax","$36,500"]]
+
+ },
+
+ postres:{
+
+  title:"Mesa de postres y botanas",
+
+  intro:"Incluye mix de botanas preparados, 10 postres a elegir, opción de montaje tradicional o set de mamparas, mobiliario de temporada y bases de alturas, cajitas y etiquetas personalizadas, 10 floreros mini con follaje y flor, letrero neón, montaje, desmontaje y personal de servicio durante 3 horas.",
+
+  prices:[["100 pax","$16,000"],["120 pax","$19,200"],["150 pax","$24,000"],["200 pax","$30,000"],["250 pax","$37,500"],["300 pax","$45,500"]]
+
+ },
+
+ gourmet:{
+
+  title:"Carnes frías y quesos gourmet",
+
+  intro:"Incluye mix de botanas, variedad de carnes frías y quesos gourmet, pan artesanal y mermeladas gourmet, frutos rojos, higos, dátiles, pretzels, aceitunas y galletas, mezcla de frutas deshidratadas y nueces, además de decoración floral con jardineras y floreros medianos.",
+
+  prices:[["100 pax","$18,000"],["120 pax","$21,600"],["150 pax","$27,000"],["200 pax","$34,000"],["250 pax","$42,500"],["300 pax","$51,500"]]
+
+ },
+
+ crepas:{
+
+  title:"Barra de crepas",
+
+  intro:"Incluye crepas preparadas al momento, 2 personas de servicio, montaje y desmontaje, conos personalizados y decoración con 2 jardineras. También se contempla opcionalmente set con back y letrero neón, según el montaje a elegir. Dulces: crema de avellanas, queso crema, mermeladas y cajeta. Saladas: quesos, hawaiana y pepperoni.",
+
+  prices:[["80 dulces","$9,600"],["100 dulces","$12,000"],["120 dulces","$13,200"],["150 dulces","$16,500"],["80 saladas","$10,400"],["100 saladas","$13,000"],["120 saladas","$14,400"],["150 saladas","$18,000"]]
+
+ },
+
+ micheladas:{
+
+  title:"Barra de micheladas",
+
+  intro:"Incluye 1 cerveza por persona, banderillas de tamarindo, gomitas, pepino y piña, chile para escarchar, ajonjolí y Miguelito en polvo, salsa inglesa, jugo Maggi, clamatos, sal y limón. También incluye personal de servicio durante 3 horas, montaje, desmontaje, barra con back y letrero neón.",
+
+  prices:[["80 pax","$9,600"],["100 pax","$11,000"],["120 pax","$13,200"],["150 pax","$16,500"]]
+
+ },
+
+ dorilocos:{
+
+  title:"Barra de dorilocos",
+
+  intro:"Incluye Doritos preparados, 10 snacks a elegir de la lista, vasitos personalizados, salsas inglesa, Valentina, Botanera, chamoy, Miguelito, Tajín y jugo de limón; además de barra con letrero neón, personal de servicio, menú impreso y decoración.",
+
+  prices:[["50 dorilocos + 50 vasos de papas locas · ideal 75–100 pax","$7,000"],["75 dorilocos + 50 vasos de papas locas · ideal 100–120 pax","$10,125"],["100 dorilocos + 100 vasos de papas locas · ideal 150–180 pax","$13,000"],["125 dorilocos + 100 vasos de papas locas · ideal 180–210 pax","$15,000"]]
+
+ }
+
+};
+
+
+
+const serviceModal = document.getElementById('serviceModal');
+const modalContent = document.getElementById('modalContent');
+const quoteModal = document.getElementById('quoteModal');
+const quoteForm = document.getElementById('quoteForm');
+const formResult = document.getElementById('formResult');
+const nav = document.getElementById('nav');
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+const backtop = document.getElementById('backtop');
+let lastFocusedElement = null;
+
+function setMenuOpen(open) {
+  navLinks.classList.toggle('open', open);
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  menuBtn.querySelector('span').textContent = open ? '×' : '☰';
+}
+
+menuBtn.addEventListener('click', () => {
+  setMenuOpen(menuBtn.getAttribute('aria-expanded') !== 'true');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => setMenuOpen(false));
+});
+document.addEventListener('click', event => {
+  if (!nav.contains(event.target) && menuBtn.getAttribute('aria-expanded') === 'true') {
+    setMenuOpen(false);
+  }
+});
+
+function openModal(element, focusSelector) {
+  lastFocusedElement = document.activeElement;
+  element.classList.add('open');
+  element.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+  const focusTarget = element.querySelector(focusSelector || '.modal-close');
+  if (focusTarget) window.setTimeout(() => focusTarget.focus({ preventScroll: true }), 20);
+}
+
+function closeModal(element) {
+  element.classList.remove('open');
+  element.setAttribute('aria-hidden', 'true');
+  if (!document.querySelector('.modal.open')) document.body.classList.remove('modal-open');
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    lastFocusedElement.focus({ preventScroll: true });
+  }
+}
+
+document.querySelectorAll('[data-service]').forEach(button => {
+  button.addEventListener('click', () => {
+    const service = services[button.dataset.service];
+    if (!service) return;
+    modalContent.innerHTML = `
+      <h2 id="modalTitle">${service.title}</h2>
+      <p>${service.intro}</p>
+      <h4>Precios del catálogo</h4>
+      <div class="price-table-wrap"><table class="price-table">
+        <thead><tr><th scope="col">Cantidad</th><th scope="col">Precio</th></tr></thead>
+        <tbody>${service.prices.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td></tr>`).join('')}</tbody>
+      </table></div>
+      <h4>Nota</h4>
+      <p>Los precios y condiciones mostrados corresponden al material comercial proporcionado para esta maqueta.</p>`;
+    openModal(serviceModal);
+  });
+});
+
+document.getElementById('modalClose').addEventListener('click', () => closeModal(serviceModal));
+serviceModal.addEventListener('click', event => {
+  if (event.target === serviceModal) closeModal(serviceModal);
+});
+
+document.getElementById('quoteBtn').addEventListener('click', () => openModal(quoteModal, '#quoteNombre'));
+document.getElementById('quoteClose').addEventListener('click', () => closeModal(quoteModal));
+quoteModal.addEventListener('click', event => {
+  if (event.target === quoteModal) closeModal(quoteModal);
+});
+
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+  const helper = document.createElement('textarea');
+  helper.value = text;
+  helper.setAttribute('readonly', '');
+  helper.style.position = 'fixed';
+  helper.style.opacity = '0';
+  helper.style.pointerEvents = 'none';
+  document.body.appendChild(helper);
+  helper.select();
+  let copied = false;
+  try { copied = document.execCommand('copy'); } catch (_) { copied = false; }
+  helper.remove();
+  return copied;
+}
+
+quoteForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  const data = new FormData(quoteForm);
+  const value = key => String(data.get(key) || '').trim() || 'Sin especificar';
+  const summary = [
+    'SOLICITUD DE COTIZACIÓN — BECCA STUDIO',
+    '',
+    `Nombre: ${value('nombre')}`,
+    `Teléfono: ${value('telefono')}`,
+    `Correo: ${value('correo')}`,
+    `Fecha del evento: ${value('fecha')}`,
+    `Tipo de evento: ${value('evento')}`,
+    `Número de invitados: ${value('invitados')}`,
+    `Servicios de interés: ${value('servicios')}`,
+    `Detalles: ${value('mensaje')}`
+  ].join('\n');
+
+  const submitButton = quoteForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Preparando…';
+  formResult.textContent = 'Preparando tu solicitud…';
+  try {
+    const copied = await copyText(summary);
+    if (copied) {
+      formResult.textContent = '✓ Solicitud preparada y copiada. Esta maqueta todavía no envía los datos; compártelos por el canal de contacto oficial.';
+    } else {
+      formResult.textContent = 'La solicitud está lista, pero el navegador no permitió copiarla automáticamente. Puedes volver a intentarlo o copiar los datos manualmente.';
+      const preview = document.createElement('textarea');
+      preview.className = 'quote-preview';
+      preview.setAttribute('aria-label', 'Solicitud de cotización preparada');
+      preview.readOnly = true;
+      preview.value = summary;
+      preview.style.cssText = 'width:100%;min-height:170px;margin-top:12px;padding:12px;border:1px solid var(--line);background:var(--cream);color:var(--ink);font:inherit;';
+      const previous = quoteForm.querySelector('.quote-preview');
+      if (previous) previous.remove();
+      formResult.insertAdjacentElement('afterend', preview);
+      preview.focus({ preventScroll: true });
+      preview.select();
+    }
+  } catch (error) {
+    formResult.textContent = 'No se pudo copiar automáticamente. La solicitud no se ha enviado; revisa los datos e inténtalo de nuevo.';
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = 'Preparar solicitud';
+  }
+});
+
+document.querySelectorAll('.faq-q').forEach(question => {
+  question.setAttribute('aria-expanded', 'false');
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const opening = !item.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(other => {
+      other.classList.remove('active');
+      const otherQuestion = other.querySelector('.faq-q');
+      if (otherQuestion) {
+        otherQuestion.setAttribute('aria-expanded', 'false');
+        const plus = otherQuestion.querySelector('.faq-plus');
+        if (plus) plus.textContent = '+';
+      }
+    });
+    if (opening) {
+      item.classList.add('active');
+      question.setAttribute('aria-expanded', 'true');
+      const plus = question.querySelector('.faq-plus');
+      if (plus) plus.textContent = '−';
+    }
+  });
+});
+
+function updateScrollUI() {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+  backtop.classList.toggle('show', window.scrollY > 500);
+}
+window.addEventListener('scroll', updateScrollUI, { passive: true });
+updateScrollUI();
+backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+} else {
+  document.querySelectorAll('.reveal').forEach(element => element.classList.add('show'));
+}
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    setMenuOpen(false);
+    if (serviceModal.classList.contains('open')) closeModal(serviceModal);
+    if (quoteModal.classList.contains('open')) closeModal(quoteModal);
+  }
+  if (event.key === 'Tab') {
+    const activeModal = document.querySelector('.modal.open');
+    if (!activeModal) return;
+    const focusable = [...activeModal.querySelectorAll('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])')]
+      .filter(element => element.offsetParent !== null);
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
+});
+
+// Galería de la portada: pausa la rotación si el usuario pide movimiento reducido.
+const heroSection = document.querySelector('.hero-visual');
+const heroDots = document.querySelectorAll('.hero-gallery-dots button');
+const heroImages = [
+  'https://images.unsplash.com/photo-1757283582859-8e194707da16?auto=format&fit=crop&w=1600&q=88',
+  'https://images.unsplash.com/photo-1776267890245-a54746d62d1a?auto=format&fit=crop&w=1600&q=88',
+  'https://images.unsplash.com/photo-1768222943733-ef8c92c0aba2?auto=format&fit=crop&w=1600&q=88',
+  'https://images.unsplash.com/photo-1760533535532-61698e2cffd3?auto=format&fit=crop&w=1600&q=88',
+  'https://images.unsplash.com/photo-1706642249439-6cffa7a2a210?auto=format&fit=crop&w=1600&q=88',
+  'https://images.unsplash.com/photo-1755862836224-e92f7fbf625b?auto=format&fit=crop&w=1600&q=88'
+];
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let heroCurrent = 0;
+let heroTimer = null;
+function showHeroSlide(index) {
+  heroCurrent = (index + heroImages.length) % heroImages.length;
+  heroSection.style.backgroundImage = `url("${heroImages[heroCurrent]}")`;
+  heroDots.forEach((dot, i) => {
+    const active = i === heroCurrent;
+    dot.classList.toggle('active', active);
+    dot.setAttribute('aria-pressed', String(active));
+  });
+}
+function stopHeroGallery() {
+  if (heroTimer) window.clearInterval(heroTimer);
+  heroTimer = null;
+}
+function startHeroGallery() {
+  stopHeroGallery();
+  if (reduceMotion || document.hidden) return;
+  heroTimer = window.setInterval(() => showHeroSlide(heroCurrent + 1), 6000);
+}
+heroDots.forEach(dot => dot.addEventListener('click', () => {
+  showHeroSlide(Number(dot.dataset.slide));
+  startHeroGallery();
+}));
+document.addEventListener('visibilitychange', () => document.hidden ? stopHeroGallery() : startHeroGallery());
+showHeroSlide(0);
+startHeroGallery();
+</script>
+
+</body>
+
+</html>
